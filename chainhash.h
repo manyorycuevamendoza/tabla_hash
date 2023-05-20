@@ -60,7 +60,7 @@ public:
 
 
     }
-
+/*
     int bucket_count(){
 
     }
@@ -68,7 +68,7 @@ public:
     int bucket_size(int i){
 
     }
-
+*/
     ~ChainHash(){
 
     }
