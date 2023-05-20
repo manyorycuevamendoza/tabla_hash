@@ -29,18 +29,20 @@ public:
         int index = hasher(key)%capacity;
         if (size*1.0/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
         array[index].push_front(Entry<TK,TV>(key,value));
-<<<<<<< HEAD
 
-        array[index].display();
-=======
         //array[index].display();
->>>>>>> 27722cc1b3bee7029fd41e87a3d3ff50d79c7a2a
         size++;
     }
 
     bool find(TK key){ // busca si existe uno o mas elementos con ese key
         int index = hasher(key)%capacity;
         return array[index].find(Entry<TK,TV>(key,TV()));
+    }
+
+    void display(){
+        for(int i=0;i<bucket_count();i++){
+            array[i].display();
+        }
     }
 
 
@@ -61,13 +63,22 @@ private: // ver rehashing
         int newCapacity = capacity*2;//se duplica el tamanio del array int newCpacity=capacity*2
         ForwardList<Entry<TK,TV>>* newArray = new ForwardList<Entry<TK,TV>>[newCapacity];//se crea un nuevo array con el doble  de tamañio
         for(int i=0; i<bucket_count();i++){ //
-            for(int j=0; j<bucket_size(i);j++){ 
+            for(int j=0; j<bucket_size(i);j++){
+                TK key = array[i][j].key;
+                TV value = array[i][j].value;
                 int index = hasher(key)%capacity;
                 newArray[index].push_front(Entry<TK,TV>(key,value));
             }
         }
 
         delete [] array;
+        this->capacity*=2;
+        this->array = new ForwardList<Entry<TK,TV>>[capacity];
+
+        for(int i=0;i<bucket_count();i++){
+            array[i] = newArray[i];
+            //array[i].display();
+        }
     }
 };
 

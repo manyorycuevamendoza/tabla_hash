@@ -14,23 +14,29 @@ int main(){
     umap.insert("pucp", 3);
     umap.insert("ucal", 4);
     umap.insert("upc", 5);
+
     umap.insert("utp", 6);
     umap.insert("upch", 7);
     umap.insert("unam", 8);
     umap.insert("unt", 9);
     umap.insert("usp", 10);
-    umap.insert("San Martin", 8);
-    umap.insert("upuch", 10);
-    umap.insert("patito", 6);
-    umap.insert("ugod", 6);
-    umap.insert("a", 10);
-    umap.insert("b", 6);
-    umap.insert("c", 6);
-    umap.insert("dfd", 10);
-    umap.insert("sd", 6);
-    umap.insert("g", 6);
 
+    umap.insert("San Martin", 11);
+    umap.insert("upuch", 12);
+    umap.insert("patito", 13);
+    umap.insert("ugod", 14);
+    umap.insert("a", 15);
+
+    umap.insert("b", 16);
+    umap.insert("c", 17);
+    umap.insert("dfd", 18);
+    umap.insert("sd", 19);
+    umap.insert("g", 20);
+
+    cout<<"Display: ";
+    umap.display();
     cout<<umap.find("utec"); // busca
+    cout<<umap.find("ad"); // busca
 
     int n = umap.bucket_count();
     cout<<"\nsize of hash table: "<<n<<endl;
