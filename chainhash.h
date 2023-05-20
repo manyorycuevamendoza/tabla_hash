@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "forward_list.h"
+#include "SHA256.h"
 #include <functional>
 
 using namespace std;
@@ -27,19 +28,28 @@ public:
     };
 
 private:
-    forward_list<Entry>* array;
+    ForwardList<Entry>* array;
     int capacity;//tamanio del array
     int size;//cantidad total de elementos
-    hash<TK> hasher;
+    hash<TK> hasher;//hash de string
 
 public:
     ChainHash(int cap = 13){
         this->capacity = cap;
         this->size = 0;
-        array = new forward_list<Entry>[this->capacity];
+        array = new ForwardList<Entry>[this->capacity]; //sese borra porque se tiene que generar con el fores list de l aclase sha
     }
 
     void insert(TK key, TV value){
+        SHA256 sha;
+        sha.update(key);
+        uint8_t * digest = sha.digest();
+        std::cout<<*digest;
+        std::cout << SHA256::toString(digest) << std::endl;
+
+        delete[] digest; 
+        
+
     }
 
     TV find(TK key){

@@ -24,7 +24,7 @@ int main(){
     umap.insert("patito", 6);
     umap.insert("ugod", 6);
 
-
+/*
     //umap.remove("utec"); // elimina
     cout<<umap.find("utec"); // busca
 
@@ -38,6 +38,8 @@ int main(){
         //}
         cout<<endl;
     } // falta implementar iteradores
+    */
+   return 0;
 }
 
 
