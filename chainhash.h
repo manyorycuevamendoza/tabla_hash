@@ -66,7 +66,7 @@ private: // ver rehashing
             for(int j=0; j<bucket_size(i);j++){
                 TK key = array[i][j].key;
                 TV value = array[i][j].value;
-                int index = hasher(key)%capacity;
+                int index = hasher(key)%newCapacity;
                 newArray[index].push_front(Entry<TK,TV>(key,value));
             }
         }
