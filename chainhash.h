@@ -43,8 +43,6 @@ public:
     void insert(TK key, TV value){
         cout<<hasher(key)<<endl;
         std::cout << SHA256::digest << std::endl;
-
-        delete[] digest; 
         
 
     }
