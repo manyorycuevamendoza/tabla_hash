@@ -40,7 +40,7 @@ public:
     }
 
     //retorna el id value
-    TV search_value(TK key) {
+    TV search(TK key) {
         if (!find(key)) {
             cerr << "Error";
         }
