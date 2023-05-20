@@ -30,10 +30,8 @@ int main(){
     umap.insert("sd", 6);
     umap.insert("g", 6);
 
-/*
-    //umap.remove("utec"); // elimina
     cout<<umap.find("utec"); // busca
-*/
+
     int n = umap.bucket_count();
     cout<<"\nsize of hash table: "<<n<<endl;
 /*

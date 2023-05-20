@@ -20,6 +20,10 @@ struct Entry{
         salida<<e.key<<" - "<<e.value;
         return salida;
     }
+
+    bool operator==(Entry a){ // solo verifica que tenga mismo key
+        return a.key==this->key;
+    }
 };
 
 template <typename T>
@@ -75,6 +79,16 @@ class ForwardList {
             }
             cout<<endl;
         }
+
+        bool find(T data){
+            NodeF<T>* temp = head;
+            while(temp){
+                if (temp->data==data) return true;
+                temp =temp->next;
+            }
+            return false;
+        }
+
         int get_size(){
             return size;
         }

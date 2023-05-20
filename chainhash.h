@@ -29,19 +29,15 @@ public:
         int index = hasher(key)%capacity;
         if (size*1.0/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
         array[index].push_front(Entry<TK,TV>(key,value));
-
-        array[index].display();
+        //array[index].display();
         size++;
     }
 
-    TV find(TK key){
-
+    bool find(TK key){ // busca si existe uno o mas elementos con ese key
+        int index = hasher(key)%capacity;
+        return array[index].find(Entry<TK,TV>(key,TV()));
     }
 
-    void remove(TK key){
-
-
-    }
 
     int bucket_count(){
         return capacity;
