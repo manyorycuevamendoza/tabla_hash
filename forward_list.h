@@ -28,9 +28,11 @@ template <typename T>
 class ForwardList {
     private:
         NodeF<T>* head;//creamos un puntero al inicio de la lista
+        int size;
     public:
         ForwardList() {
             head = nullptr;
+            size=0;
         }
 
         ~ForwardList(){
@@ -41,6 +43,7 @@ class ForwardList {
             NodeF<T>* nuevo = new NodeF<T>(data);
             nuevo->next = head;
             head = nuevo;
+            size++;
         }
 
         void display(){//funcion para mostrar la lista
@@ -50,6 +53,9 @@ class ForwardList {
                 temp = temp->next;
             }
             cout<<endl;
+        }
+        int get_size(){
+            return size;
         }
 
 };

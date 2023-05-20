@@ -37,14 +37,15 @@ public:
     ChainHash(int cap = 13){
         this->capacity = cap;
         this->size = 0;
-        array = new ForwardList<Entry>[this->capacity]; //sese borra porque se tiene que generar con el fores list de l aclase sha
+        array = new ForwardList<Entry>(); //sese borra porque se tiene que generar con el fores list de l aclase sha
     }
 
     void insert(TK key, TV value){
-        cout<<hasher(key)<<endl;
-        std::cout << SHA256::digest << std::endl;
-        
-
+        int index = hasher(key)%capacity;
+        //if (size/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
+        Entry par(key,value);
+        array[index].push_front(par);
+        size++;
     }
 
     TV find(TK key){
@@ -55,15 +56,15 @@ public:
 
 
     }
-/*
-    int bucket_count(){
 
+    int bucket_count(){
+        return capacity;
     }
 
     int bucket_size(int i){
-
+        return array[i].get_size();
     }
-*/
+
     ~ChainHash(){
 
     }
