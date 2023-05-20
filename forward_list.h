@@ -15,6 +15,11 @@ struct Entry{
         this->key = k;
         this->value = v;
     }
+
+    friend ostream& operator<<(ostream& salida,Entry e){
+        salida<<e.key<<" - "<<e.value;
+        return salida;
+    }
 };
 
 template <typename T>
@@ -65,7 +70,7 @@ class ForwardList {
         void display(){//funcion para mostrar la lista
             NodeF<T>* temp = head;
             while(temp != nullptr){
-                cout<<temp->data<<"->";
+                cout<<temp->data<<endl;
                 temp = temp->next;
             }
             cout<<endl;

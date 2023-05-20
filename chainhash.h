@@ -30,7 +30,7 @@ public:
         if (size*1.0/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
         array[index].push_front(Entry<TK,TV>(key,value));
 
-        //cout<<array[index].get_size()<<endl;
+        array[index].display();
         size++;
     }
 
