@@ -52,40 +52,4 @@ class ForwardList {
             cout<<endl;
         }
 
-        //creamos un iterador para recorrer la lista
-        class iterator{
-            private:
-                NodeF<T>* ptr;
-            public:
-                iterator(NodeF<T>* p = nullptr){
-                    ptr = p;
-                }
-                iterator operator++(){
-                    ptr = ptr->next;
-                    return *this;
-                }
-                iterator operator++(int){
-                    iterator temp = *this;
-                    ptr = ptr->next;
-                    return temp;
-                }
-                bool operator==(const iterator& it){
-                    return ptr == it.ptr;
-                }
-                bool operator!=(const iterator& it){
-                    return ptr != it.ptr;
-                }
-                T& operator*(){
-                    return ptr->data;
-                }
-        };
-
-        iterator begin(){
-            return iterator(head);
-        }
-
-        iterator end(){
-            return iterator(nullptr);
-        }
-
 };
