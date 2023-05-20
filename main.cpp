@@ -50,7 +50,10 @@ int main(){
 
     cout<<umap.search("utec")<<endl;
     cout<<umap.search("upc")<<endl;
+<<<<<<< HEAD
     */
+=======
+>>>>>>> d88766d56a4f4b7156ba3976758c1b970fbd739b
 /*
     for(int i=0;i<n;++i){
         cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
