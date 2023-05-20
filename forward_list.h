@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 template <class T>
 //creamos una clase para el nodo
 struct NodeF

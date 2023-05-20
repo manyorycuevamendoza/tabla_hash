@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include "forward_list.h"
-#include "SHA256.h"
+//#include "SHA256.h"
 #include <functional>
 
 using namespace std;
@@ -14,7 +14,9 @@ const int maxColision = 3;
 template<typename TK, typename TV>
 class ChainHash{
 public:
-    struct Entry{
+
+struct Entry
+{
         TK key;
         TV value;
 
@@ -25,10 +27,9 @@ public:
             this->key = k;
             this->value = v;
         }
-    };
-
+};
 private:
-    ForwardList<Entry>* array;
+    ForwardList<Entry<TK,TV>>* array;//array de listas
     int capacity;//tamanio del array
     int size;//cantidad total de elementos
     hash<TK> hasher;//hash de string
@@ -37,15 +38,14 @@ public:
     ChainHash(int cap = 13){
         this->capacity = cap;
         this->size = 0;
-        array = new ForwardList<Entry>(); //sese borra porque se tiene que generar con el fores list de l aclase sha
+        array = new ForwardList<Entry<TK,TV>>[capacity];
     }
 
     void insert(TK key, TV value){
         int index = hasher(key)%capacity;
-        //if (size/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
-        Entry par(key,value);
-        array[index].push_front(par);
+        array[index].push_front(Entry (key,value));
         size++;
+        if ((maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
     }
 
     TV find(TK key){
