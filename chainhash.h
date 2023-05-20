@@ -65,6 +65,12 @@ Si buscamos al emisor a
         }
     }
 
+    void display(){
+        for(int i=0;i<bucket_count();i++){
+            array[i].display();
+        }
+    }
+
 
     int bucket_count(){
         return capacity;
