@@ -7,6 +7,8 @@ struct Entry{
     TV value;
 
     Entry(){
+        key = TK();
+        value = TV();
     }
 
     Entry(TK k, TV v) {
@@ -42,7 +44,7 @@ template <typename T>
 class ForwardList {
     private:
         NodeF<T>* head;//creamos un puntero al inicio de la lista
-        int size;
+        int size =0;
     public:
         ForwardList() {
             head = nullptr;

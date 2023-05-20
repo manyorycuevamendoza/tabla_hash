@@ -22,18 +22,16 @@ public:
     ChainHash(int cap = 13){
         this->capacity = cap;
         this->size = 0;
-        array = new ForwardList<Entry<TK,TV>>(); //sese borra porque se tiene que generar con el fores list de l aclase sha
+        array = new ForwardList<Entry<TK,TV>>[capacity]; //sese borra porque se tiene que generar con el fores list de l aclase sha
     }
 
     void insert(TK key, TV value){
         int index = hasher(key)%capacity;
-        if ((maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
-        //if (size/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
-        //array[index].push_front(Entry<TK,TV>(key,value));
-        cout<<array[index].get_size()<<endl;
+        if (size*1.0/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
+        array[index].push_front(Entry<TK,TV>(key,value));
 
+        //cout<<array[index].get_size()<<endl;
         size++;
-
     }
 
     TV find(TK key){
