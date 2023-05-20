@@ -15,6 +15,15 @@ struct Entry{
         this->key = k;
         this->value = v;
     }
+
+    friend ostream& operator<<(ostream& salida,Entry e){ //sobrecarga del operador <<
+        salida<<e.key<<" - "<<e.value;
+        return salida;
+    }
+
+
+
+
 };
 
 template <typename T>
@@ -37,11 +46,21 @@ struct NodeF
         if(next != nullptr) next->killSelf();
         delete this;
     }
+
+
 };
 
 //creamos una clase para la lista
 template <typename T>
 class ForwardList {
+    public:
+
+    T operator [](int e){ //operator como de indez
+        NodeF *temp;
+        //recorrro
+        
+
+    }
     private:
         NodeF<T>* head;//creamos un puntero al inicio de la lista
         int size =0;
@@ -65,7 +84,7 @@ class ForwardList {
         void display(){//funcion para mostrar la lista
             NodeF<T>* temp = head;
             while(temp != nullptr){
-                cout<<temp->data<<"->";
+                cout<<temp->data<<endl;
                 temp = temp->next;
             }
             cout<<endl;

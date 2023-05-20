@@ -30,7 +30,7 @@ public:
         if (size*1.0/(maxColision*capacity)>=maxFillFactor) {cout<<"rehashing\n"; rehashing();}
         array[index].push_front(Entry<TK,TV>(key,value));
 
-        //cout<<array[index].get_size()<<endl;
+        array[index].display();
         size++;
     }
 
@@ -57,8 +57,16 @@ public:
 
 private: // ver rehashing
     void rehashing(){
+        int newCapacity = capacity*2;//se duplica el tamanio del array int newCpacity=capacity*2
+        ForwardList<Entry<TK,TV>>* newArray = new ForwardList<Entry<TK,TV>>[newCapacity];//se crea un nuevo array con el doble  de tamañio
+        for(int i=0; i<bucket_count();i++){ //
+            for(int j=0; j<bucket_size(i);j++){ 
+                int index = hasher(key)%capacity;
+                newArray[index].push_front(Entry<TK,TV>(key,value));
+            }
+        }
 
+        delete [] array;
     }
 };
-
 

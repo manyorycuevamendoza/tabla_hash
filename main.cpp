@@ -38,14 +38,13 @@ int main(){
     cout<<"\nsize of hash table: "<<n<<endl;
 /*
     for(int i=0;i<n;++i){
-        //cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
-        //for(auto it = umap.begin(i); it != umap.end(i); ++it){
-        //    cout<<"["<<(*it).key<<":"<<(*it).value<<"]";
-        //}
+        cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
+        for(auto it = umap.begin(i); it != umap.end(i); ++it){
+            cout<<"["<<(*it).key<<":"<<(*it).value<<"]";
+        }
         cout<<endl;
     } // falta implementar iteradores
     */
    return 0;
 }
-
 
