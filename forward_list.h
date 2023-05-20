@@ -16,24 +16,16 @@ struct Entry{
         this->value = v;
     }
 
-<<<<<<< HEAD
-    friend ostream& operator<<(ostream& salida,Entry e){ //sobrecarga del operador <<
-=======
-    friend ostream& operator<<(ostream& salida,Entry e){
->>>>>>> 27722cc1b3bee7029fd41e87a3d3ff50d79c7a2a
-        salida<<e.key<<" - "<<e.value;
+    bool same_key(Entry a){
+        return a.key==this->key;
+    }
+
+
+    friend ostream& operator<<(ostream& salida, Entry<TK,TV> e){
+        salida<<e.key<<" "<<e.value;
         return salida;
     }
 
-<<<<<<< HEAD
-
-
-
-=======
-    bool operator==(Entry a){ // solo verifica que tenga mismo key
-        return a.key==this->key;
-    }
->>>>>>> 27722cc1b3bee7029fd41e87a3d3ff50d79c7a2a
 };
 
 template <typename T>
@@ -66,11 +58,18 @@ class ForwardList {
     public:
 
     T operator [](int e){ //operator como de indez
-        NodeF *temp;
-        //recorrro
-        
-
+        NodeF<T>*temp = head;
+        for (int i=0;i<e;i++){
+            temp = temp->next;
+        }
+        return temp->data;
     }
+
+    void operator=(T data){
+        this->head = data->head;
+        this->size = data->size;
+    }
+
     private:
         NodeF<T>* head;//creamos un puntero al inicio de la lista
         int size =0;
@@ -103,7 +102,7 @@ class ForwardList {
         bool find(T data){
             NodeF<T>* temp = head;
             while(temp){
-                if (temp->data==data) return true;
+                if (temp->data.same_key(data)) return true;
                 temp =temp->next;
             }
             return false;
@@ -112,5 +111,11 @@ class ForwardList {
         int get_size(){
             return size;
         }
+
+        T top(){ //siempre retornamos el ttop porque es el ultimo el que insertamos, un forward list imita a un satck
+            return head->data;
+        }
+
+        
 
 };
