@@ -2,11 +2,16 @@
 // Created by ASUS on 20/05/2023.
 //
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
 #include "chainhash.h"
 
 using namespace std;
 
 int main(){
+    /*
     ChainHash<string, int> umap;
 
     umap.insert("utec",1);
@@ -33,6 +38,8 @@ int main(){
     umap.insert("sd", 19);
     umap.insert("g", 20);
 
+    umap.insert("utec",21);
+
     cout<<"Display: ";
     umap.display();
     cout<<umap.find("utec"); // busca
@@ -41,7 +48,9 @@ int main(){
     int n = umap.bucket_count();
     cout<<"\nsize of hash table: "<<n<<endl;
 
-    cout<<umap.search_value("utec");
+    cout<<umap.search("utec")<<endl;
+    cout<<umap.search("upc")<<endl;
+    */
 /*
     for(int i=0;i<n;++i){
         cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
@@ -51,5 +60,26 @@ int main(){
         cout<<endl;
     } // falta implementar iteradores
     */
+
+    std::ifstream file("test1_bchain.csv");
+    if (!file.is_open()) {
+        std::cout << "Failed to open the file." << std::endl;
+        return 1;
+    }
+
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string item;
+
+        std::getline(ss, item, ',');
+        std::cout << item <<std::endl;
+        
+
+    }
+
+    file.close();
+
    return 0;
 }

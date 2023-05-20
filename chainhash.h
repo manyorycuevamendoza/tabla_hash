@@ -40,23 +40,15 @@ public:
     }
 
     //retorna el id value
-    TV search_value(TK key){
-
-        if (find(key)){
-            int index=hash(key)%capacity;
-            return array[index].top(); //porque nosostros "si ingresamos un mismo key debe salir el mismo código"--->ESTABILIDAD
-/*
-
-
-Si buscamos al emisor a
-*/
+    TV search(TK key) {
+        if (!find(key)) {
+            cerr << "Error";
         }
-        else{
-            std::cerr<<"error, no se encuentra";
-        }
+        int index=hasher(key)%capacity;
+        Entry<TK,TV> entry (key,TV());
+        return array[index].top(entry).value; //porque nosostros "si ingresamos un mismo key debe salir el mismo código"--->ESTABILIDAD
 
     }
-
 
 
     void display(){
@@ -65,11 +57,6 @@ Si buscamos al emisor a
         }
     }
 
-    void display(){
-        for(int i=0;i<bucket_count();i++){
-            array[i].display();
-        }
-    }
 
 
     int bucket_count(){

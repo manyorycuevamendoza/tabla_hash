@@ -112,8 +112,13 @@ class ForwardList {
             return size;
         }
 
-        T top(){ //siempre retornamos el ttop porque es el ultimo el que insertamos, un forward list imita a un satck
-            return head->data;
+        T top(T data){ //siempre retornamos el ttop porque es el ultimo el que insertamos, un forward list imita a un satck
+            NodeF<T>* temp = head;
+            while(temp) {
+                if (temp->data.same_key(data)) return temp->data;
+                temp = temp->next;
+            }
+            return temp->data;
         }
 
         
