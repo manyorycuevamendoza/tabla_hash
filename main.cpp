@@ -33,6 +33,8 @@ int main(){
     umap.insert("sd", 19);
     umap.insert("g", 20);
 
+    umap.insert("utec",21);
+
     cout<<"Display: ";
     umap.display();
     cout<<umap.find("utec"); // busca
@@ -41,7 +43,8 @@ int main(){
     int n = umap.bucket_count();
     cout<<"\nsize of hash table: "<<n<<endl;
 
-    cout<<umap.search_value("utec");
+    cout<<umap.search_value("utec")<<endl;
+    cout<<umap.search_value("upc")<<endl;
 /*
     for(int i=0;i<n;++i){
         cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
