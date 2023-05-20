@@ -16,14 +16,24 @@ struct Entry{
         this->value = v;
     }
 
+<<<<<<< HEAD
     friend ostream& operator<<(ostream& salida,Entry e){ //sobrecarga del operador <<
+=======
+    friend ostream& operator<<(ostream& salida,Entry e){
+>>>>>>> 27722cc1b3bee7029fd41e87a3d3ff50d79c7a2a
         salida<<e.key<<" - "<<e.value;
         return salida;
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+    bool operator==(Entry a){ // solo verifica que tenga mismo key
+        return a.key==this->key;
+    }
+>>>>>>> 27722cc1b3bee7029fd41e87a3d3ff50d79c7a2a
 };
 
 template <typename T>
@@ -89,6 +99,16 @@ class ForwardList {
             }
             cout<<endl;
         }
+
+        bool find(T data){
+            NodeF<T>* temp = head;
+            while(temp){
+                if (temp->data==data) return true;
+                temp =temp->next;
+            }
+            return false;
+        }
+
         int get_size(){
             return size;
         }
