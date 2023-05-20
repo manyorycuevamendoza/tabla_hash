@@ -41,11 +41,8 @@ public:
     }
 
     void insert(TK key, TV value){
-        SHA256 sha;
-        sha.update(key);
-        uint8_t * digest = sha.digest();
-        std::cout<<*digest;
-        std::cout << SHA256::toString(digest) << std::endl;
+        cout<<hasher(key)<<endl;
+        std::cout << SHA256::digest << std::endl;
 
         delete[] digest; 
         
