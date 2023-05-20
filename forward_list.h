@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-<<<<<<< HEAD
 template<typename TK,typename  TV>
 struct Entry{
     TK key;
@@ -17,10 +16,6 @@ struct Entry{
 };
 
 template <typename T>
-=======
-
-template <class T>
->>>>>>> 6a8c442b6ec03290f2c876e9c8e8840d0fdb9345
 //creamos una clase para el nodo
 struct NodeF
 {
