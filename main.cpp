@@ -43,8 +43,8 @@ int main(){
     int n = umap.bucket_count();
     cout<<"\nsize of hash table: "<<n<<endl;
 
-    cout<<umap.search_value("utec")<<endl;
-    cout<<umap.search_value("upc")<<endl;
+    cout<<umap.search("utec")<<endl;
+    cout<<umap.search("upc")<<endl;
 /*
     for(int i=0;i<n;++i){
         cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
