@@ -1,7 +1,21 @@
 #include <iostream>
 using namespace std;
 
-template <class T>
+template<typename TK,typename  TV>
+struct Entry{
+    TK key;
+    TV value;
+
+    Entry(){
+    }
+
+    Entry(TK k, TV v) {
+        this->key = k;
+        this->value = v;
+    }
+};
+
+template <typename T>
 //creamos una clase para el nodo
 struct NodeF
 {
