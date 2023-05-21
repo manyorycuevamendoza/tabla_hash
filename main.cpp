@@ -50,10 +50,7 @@ int main(){
 
     cout<<umap.search("utec")<<endl;
     cout<<umap.search("upc")<<endl;
-<<<<<<< HEAD
-    */
-=======
->>>>>>> d88766d56a4f4b7156ba3976758c1b970fbd739b
+*/
 /*
     for(int i=0;i<n;++i){
         cout<<"Bucket #"<<i<<", size: "<<umap.bucket_size(i)<<":  ";
@@ -63,6 +60,7 @@ int main(){
         cout<<endl;
     } // falta implementar iteradores
     */
+    vector<ChainHash<string, int>>umap(5);
 
     std::ifstream file("test1_bchain.csv");
     if (!file.is_open()) {
@@ -70,19 +68,25 @@ int main(){
         return 1;
     }
 
-
+   // umap[0]= new ChainHash<string, int>;
     std::string line;
+    int i=0;
+    std::getline(file, line);
+    //umap[0].insert("a",i);
+
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         std::string item;
-
+        i++;
         std::getline(ss, item, ',');
-        std::cout << item <<std::endl;
-        
+        umap[0].insert(item,i);
 
     }
 
+    umap[0].display();
+    cout<<"Size: "<<umap[0].get_size();
     file.close();
 
    return 0;
 }
+

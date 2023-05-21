@@ -34,6 +34,10 @@ public:
         size++;
     }
 
+    int get_size(){
+        return size;
+    }
+
     bool find(TK key){ // busca si existe uno o mas elementos con ese key, en el chain
         int index = hasher(key)%capacity;
         return array[index].find(Entry<TK,TV>(key,TV())); //ingresa al forwrd list. 
@@ -93,4 +97,6 @@ private: // ver rehashing
             //array[i].display();
         }
     }
+
+
 };
